@@ -35,6 +35,8 @@ public class ImageSlideshow: UIView, UIScrollViewDelegate {
     var singleTapGestureRecognizer : UITapGestureRecognizer?
     var doubleTapGestureRecognizer : UITapGestureRecognizer?
 
+    var slideshowTransitioningDelegate:ZoomAnimatedTransitioningDelegate?
+
     // MARK: - State properties
     
     /// Page control position
@@ -170,7 +172,7 @@ public class ImageSlideshow: UIView, UIScrollViewDelegate {
         ctr.initialImageIndex = scrollViewPage
         ctr.inputs = images
 
-        let slideshowTransitioningDelegate = ZoomAnimatedTransitioningDelegate(slideshowView: self, slideshowController: ctr)
+        slideshowTransitioningDelegate = ZoomAnimatedTransitioningDelegate(slideshowView: self, slideshowController: ctr)
         // Uncomment if you want disable the slide-to-dismiss feature on full screen preview
         // self.transitionDelegate?.slideToDismissEnabled = false
         ctr.transitioningDelegate = slideshowTransitioningDelegate
