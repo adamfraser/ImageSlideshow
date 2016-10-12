@@ -165,9 +165,11 @@ public class ImageSlideshow: UIView, UIScrollViewDelegate {
         ctr.pageSelected = {(page: Int) in
             self.setScrollViewPage(page, animated: false)
         }
-        
+
+        ctr.slideshow.circular = self.circular
         ctr.initialImageIndex = scrollViewPage
         ctr.inputs = images
+
         let slideshowTransitioningDelegate = ZoomAnimatedTransitioningDelegate(slideshowView: self, slideshowController: ctr)
         // Uncomment if you want disable the slide-to-dismiss feature on full screen preview
         // self.transitionDelegate?.slideToDismissEnabled = false
